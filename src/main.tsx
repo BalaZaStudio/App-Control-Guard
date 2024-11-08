@@ -6,7 +6,7 @@ import './index.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Router basename="/App-Guard-Control">  {/* Solo usa el nombre del repositorio */}
+    <Router basename="/App-Control-Guard">  {/* Solo usa el nombre del repositorio */}
       <App />
     </Router>
   </StrictMode>,
