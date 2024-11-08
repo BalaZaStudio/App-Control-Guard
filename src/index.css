@@ -1,0 +1,470 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilo general */
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  /* Oculta el scroll global */
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f0f4f8;
+  /* Color de fondo más brillante */
+  color: #333;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: none;
+  /* Para Firefox */
+}
+
+/* Hacer que el contenedor principal permita scroll */
+#root {
+  height: 100%;
+  overflow-y: auto;
+  /* Scroll en el contenido */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+#root::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari */
+}
+
+/* Encabezado */
+h2 { 
+  font-weight: bold;
+  margin-bottom: 16px;
+  text-align: center;
+  color: #2d3748; /* text-gray-800 */
+  font-family: 'Montserrat', sans-serif; /* font-montserrat */
+  transform: translateY(-50px);
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+  
+  /* Sombra para efecto 3D */
+  text-shadow: 
+    2px 2px 0 rgba(0, 0, 0, 0.2), /* Sombra hacia la derecha y abajo */
+    4px 4px 0 rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Botones */
+button {
+  background-color: #abd1f7; /* Color de fondo vibrante */
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 0.75rem 1.5rem; /* Relleno más grande */
+  border-radius: 12px; /* Bordes redondeados */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s; /* Transiciones suaves */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+  font-size: 1rem; /* Tamaño de fuente */
+}
+
+/* Efecto al pasar el ratón */
+button:hover {
+  background-color: #81fa95; /* Color más oscuro al pasar el mouse */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más intensa al pasar el mouse */
+  transform: translateY(-2px); /* Eleva el botón al pasar el mouse */
+}
+
+/* Efecto al hacer clic */
+button:active {
+  transform: scale(0.95); /* Reduce el tamaño del botón al hacer clic */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más suave al hacer clic */
+}
+
+
+/* Tabla */
+table {
+  width: 100%;
+  /* Mantén el 100% de ancho disponible */
+  border-collapse: collapse;
+  /* Elimina márgenes entre celdas */
+  table-layout: fixed;
+  /* Asegura que las celdas no cambien de tamaño */
+
+}
+
+th,
+td {
+  padding: 8px;
+  /* Mantén el padding mínimo sin agrandar las celdas */
+  text-align: center;
+  /* Centra el texto horizontalmente */
+  vertical-align: middle;
+  /* Centra el texto verticalmente */
+  border: 1px solid #000;
+  /* Añadir bordes finos */
+  box-sizing: border-box;
+  /* Asegura que el padding y borde no afecten el tamaño */
+}
+
+
+th {
+  background-color: #edf2f7;
+  /* Color de fondo más claro para encabezados */
+  color: #2d3748;
+}
+
+/* Colores de eventos */
+.bg-red-500 {
+  background-color: rgba(239, 68, 68, 0.85);
+}
+
+.bg-yellow-500 {
+  background-color: rgba(240, 255, 25, 0.85);
+}
+
+.bg-green-500 {
+  background-color: rgba(34, 197, 94, 0.85);
+}
+
+.bg-purple-500 {
+  background-color: rgba(167, 139, 250, 0.85);
+}
+
+/* Menú contextual */
+.absolute {
+  position: absolute;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.border {
+  border: 1px solid #000000;
+  /* Color de borde más claro */
+}
+
+.rounded {
+  border-radius: 8px;
+  color: #000;
+}
+
+.shadow-lg {
+  box-shadow: 0 4px 19px rgba(0, 0, 0, 0.2);
+  /* Sombra más suave */
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 0.5rem 0;
+}
+
+/* Botones del menú contextual con colores diferentes */
+li button {
+  text-align: left;
+  color: rgb(87, 0, 0);
+  padding: 0.5rem 1rem;
+  /* Relleno en botones del menú */
+  border: none;
+  /* Sin borde para botones del menú */
+  border-radius: 8px;
+  /* Esquinas redondeadas */
+  transition: background-color 0.3s;
+  /* Transición suave */
+}
+
+li button:nth-child(1) {
+  background-color: #4caf50;
+}
+
+li button:nth-child(2) {
+  background-color: #fff025;
+}
+
+li button:nth-child(3) {
+  background-color: #fdfdfd;
+}
+
+li button:nth-child(4) {
+  background-color: #f44336;
+}
+
+li button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  /* Color de fondo al pasar el mouse sobre el menú */
+}
+
+/* Estilo para móviles y tabletas */
+@media (max-width: 680px) {
+  h2 {
+    font-size: 1.5rem;
+    /* Ajuste de tamaño de texto en móviles */
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    /* Tamaño de texto más pequeño */
+  }
+
+  table {
+    font-size: 0.875rem;
+    /* Tamaño de texto más pequeño */
+  }
+
+  th,
+  td {
+    padding: 0.5rem;
+    width: 100%;
+  }
+
+  th:first-child,
+  td:first-child {
+    font-weight: bold;
+  }
+}
+
+@media print {
+  /* Ocultar todo por defecto */
+  body * {
+    visibility: hidden;
+    margin: 0; /* Elimina márgenes del body */
+  }
+
+  /* Mostrar solo el área de impresión: título, tabla y pie de página */
+  .print-area,
+  .print-area * {
+    visibility: visible;
+  }
+
+  .transition-opacity {
+    transition: opacity 0.7s;
+  }
+
+  @media print {
+    /* Ocultar todo por defecto */
+    body * {
+      visibility: hidden;
+      margin: 0; /* Elimina márgenes del body */
+    }
+  
+    /* Mostrar solo el área de impresión: título, tabla y pie de página */
+    .print-area,
+    .print-area * {
+      visibility: visible;
+    }
+  
+    /* Ajustar el área de impresión para que ocupe el 100% de la página */
+    .print-area {
+      position: relative; /* Cambiado de fixed a relative para permitir ajuste */
+      width: 100%; /* Asegúrate de que ocupe todo el ancho */
+      height: auto; /* Permitir que la altura se ajuste automáticamente */
+      margin: 0; /* Eliminar márgenes */
+      padding: 0; /* Sin padding para evitar márgenes extra */
+      box-sizing: border-box; /* Incluir el padding y borde en el tamaño total */
+      transform: none; /* Eliminar cualquier transformación que distorsione la tabla */
+      page-break-inside: avoid; /* Evitar saltos de página dentro de este elemento */
+      overflow: hidden; /* Evitar que el contenido se desborde */
+    }
+  
+    /* Ajustar márgenes de la página */
+    @page {
+      size: A4 landscape; /* Establecer el tamaño A4 en orientación horizontal */
+      margin: 10mm; /* Márgenes estándar para evitar recortes en la impresión */
+    }
+  
+    /* Estilo para la tabla */
+    table {
+      width: 100%; /* Hacer que la tabla ocupe todo el ancho del área de impresión */
+      border-collapse: collapse; /* Para evitar espacios entre celdas */
+    }
+  
+    th,
+    td {
+      padding: 0.1rem; /* Espaciado interno para celdas */
+      border: 1px solid black; /* Agregar bordes para mejor visualización */
+      text-align: center; /* Centrar el contenido */
+      font-size: 9px; /* Ajusta el tamaño de fuente si es necesario */
+    }
+  
+    /* Ocultar botones y otros elementos no deseados */
+    .no-print {
+      display: none;
+    }
+  
+    /* Estilo para la información de impresión */
+    .print-info,
+    #calendar-month-year {
+      font-size: 9px; /* Ajustar el tamaño de fuente */
+      margin: 0; /* Eliminar márgenes */
+      text-align: center; /* Centrar el texto */
+    }
+  }
+}
+@keyframes parpadeo-zoom-color {
+  0% {
+    opacity: 1; /* Totalmente visible */
+    transform: scale(1); /* Tamaño normal */
+    border-color: rgb(0, 0, 0); /* Color original */
+  }
+  50% {
+    opacity: 1; /* Un poco menos visible */
+    transform: scale(1.05); /* Pequeño zoom */
+    border-color: rgb(253, 255, 108); /* Color más intenso */
+    background-color: #fcf268;
+  }
+  100% {
+    opacity: 1; /* De nuevo visible */
+    transform: scale(1); /* Tamaño normal */
+    border-color: rgba(0, 0, 0, 0.5); /* Regresa al color original */
+  }
+}
+
+.celda-activa {
+  border: 4px solid rgba(228, 8, 8, 0.5); /* Borde rojo visible */
+  position: relative; /* Asegura que el overlay se posicione correctamente */
+}
+
+/* Overlay que parpadea */
+.rectangle-overlay {
+  position: absolute;
+  top: 0; /* Ajusta para cubrir toda la celda */
+  left: 0; /* Ajusta para cubrir toda la celda */
+  width: 100%; /* Ajusta automáticamente al tamaño de la celda */
+  height: 100%; /* Ajusta automáticamente al tamaño de la celda */
+  pointer-events: none; /* Evita que el recuadro interfiera con los eventos de la celda */
+  animation: parpadeo-zoom-color 1s infinite; /* Aplicar la animación combinada */
+  opacity: 1; /* Asegúrate de que el overlay sea visible */
+  border: 3px solid rgba(72, 7, 133, 0.5); /* Borde rojo visible */
+}
+
+.rectangle-overlay::before { 
+  color: black; /* Color de la X */
+  font-size: 200%; /* Tamaño ajustable, cambia según el tamaño que desees */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centra la X */
+  opacity: 1; /* Asegúrate de que la X sea visible */
+}
+
+.nombre {
+  border: 5px solid rgb(0, 255, 55); /* Ajusta el color del borde si es necesario */
+  position: relative;
+  animation: parpadeo-zoom-color 1s infinite; /* Aplicar la animación combinada */
+}
+
+.dia-activo {
+  border: 5px solid rgb(43, 255, 0); /* Ajusta el color del borde si es necesario */
+  position: relative; /* Asegura que el overlay se posicione correctamente */
+  animation: parpadeo-zoom-color 1s infinite; /* Aplicar la animación combinada */
+}
+
+.max-h-96 {
+  max-height: 24rem;
+  overflow: auto;
+  scrollbar-width: none; /* Para Firefox */
+}
+
+.max-h-96::-webkit-scrollbar {
+  display: none; /* Para navegadores basados en WebKit (Chrome, Safari) */
+}
+
+/* Estilo del contenedor principal */
+.min-h-screen {
+  min-height: 100vh;
+}
+
+/* Estilo para el menú de navegación */
+nav {
+  box-shadow: 0 22px 9px rgba(0, 0, 0, 0.1); /* Sombra sutil para el menú */
+  background: radial-gradient(circle, rgba(144, 238, 144, 1) 0%, rgba(0, 0, 0, 1) 100%); /* Gradiente radial verde claro a negro */
+  background-size: 200% 200%; /* Aumentar el tamaño del fondo para el efecto de movimiento */
+  animation: moveNavBackground 5s ease-in-out infinite; /* Animación de movimiento */
+}
+
+nav ul {
+  list-style: none; /* Eliminar los estilos de lista predeterminados */
+  padding: 0;
+  margin: 0;
+  display: flex; /* Usar flexbox para alinear los elementos */
+}
+
+/* Estilo de los enlaces */
+nav a {
+  text-decoration: none; /* Quitar subrayado */
+  color: white; /* Color del texto en blanco */
+  padding: 10px 15px; /* Espaciado interno */
+  border-radius: 0.5rem; /* Esquinas redondeadas */
+  transition: background-color 0.3s, transform 0.2s; /* Transición suave */
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Color de fondo al pasar el mouse */
+  transform: translateY(-2px); /* Efecto de elevación */
+}
+
+/* Animación para el movimiento del fondo del menú */
+@keyframes moveNavBackground {
+  0%, 100% {
+    background-position: 0% 50%; /* Comienza y termina en la posición izquierda */
+  }
+  50% {
+    background-position: 100% 50%; /* Mueve hacia la posición derecha */
+  }
+}
+
+
+/* Estilo del botón de cerrar sesión */
+button {
+  background-color: rgb(240, 189, 189); /* Color de fondo rojo */
+  color: white; /* Color del texto en blanco */
+  border: none; /* Sin borde */
+  border-radius: 0.5rem; /* Esquinas redondeadas */
+  padding: 10px 15px; /* Espaciado interno */
+  cursor: pointer; /* Cambiar cursor a puntero */
+  transition: background-color 0.3s, transform 0.2s; /* Transición suave */
+}
+
+button:hover {
+  background-color: rgb(0, 0, 0); /* Color de fondo al pasar el mouse */
+  transform: translateY(-2px); /* Efecto de elevación */
+}
+
+/* Estilo para el contenido principal */
+main {
+  background: radial-gradient(circle, rgba(144, 238, 144, 1) 0%, rgba(0, 0, 0, 1) 100%); /* Gradiente radial verde claro a negro */
+  background-size: 200% 200%; /* Aumentar el tamaño del fondo para el efecto de movimiento */  
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  padding: 20px; /* Espaciado interno */
+  animation: moveBackground 5s ease-in-out infinite; /* Animación de movimiento */
+}
+
+/* Animación para el movimiento del fondo */
+@keyframes moveBackground {
+  0%, 100% {
+    background-position: 0% 50%; /* Comienza y termina en la posición izquierda */
+  }
+  50% {
+    background-position: 100% 50%; /* Mueve hacia la posición derecha */
+  }
+}
+
+
+
+

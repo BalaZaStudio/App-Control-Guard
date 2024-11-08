@@ -1,0 +1,90 @@
+body {
+  overflow: hidden; /* Para evitar scroll */
+}
+
+.pantalla-inicio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(270deg, #4f46e5, #8b5cf6, #ec4899);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  padding: 20px; /* Añadido padding para evitar que el contenido toque los bordes */
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.slide-in {
+  animation: slideIn 1s forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.pulse-button {
+  background: linear-gradient(45deg, #4f46e5, #8b5cf6);
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 18px; /* Tamaño de fuente base */
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+/* Ajustes para móviles y tabletas */
+@media (max-width: 768px) {
+  .pulse-button {
+    padding: 12px 20px; /* Ajustar el padding para pantallas más pequeñas */
+    font-size: 16px; /* Tamaño de fuente más pequeño */
+  }
+
+  .pantalla-inicio {
+    padding: 10px; /* Menos padding en pantallas más pequeñas */
+  }
+}
+
+.pulse-button:hover {
+  transform: scale(1.1) rotate(3deg);
+}
+
+.hover-button {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

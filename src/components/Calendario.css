@@ -1,0 +1,62 @@
+#loading {
+  display: flex; /* Usamos flex para centrar el contenido */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 0.3s ease; /* Transición suave */
+}
+
+.loading-content {
+  display: flex; /* Cambiado a flex para centrar contenido */
+  flex-direction: column; /* Alinea los elementos en columna */
+  text-align: center; /* Centrar texto */
+  color: white; /* Color del texto */
+  font-size: 2rem; /* Tamaño de la fuente ajustado para pantallas más pequeñas */
+  animation: fadeIn 0.5s; /* Animación al aparecer */
+}
+
+.spinner {
+  border: 8px solid rgba(255, 255, 255, 0.3); /* Borde del spinner */
+  border-radius: 50%; /* Hace que el spinner sea redondo */
+  border-top: 8px solid white; /* Color del spinner */
+  width: 60px; /* Ancho del spinner ajustado */
+  height: 60px; /* Alto del spinner ajustado */
+  animation: spin 1s linear infinite; /* Animación de giro */
+  margin-top: 10px; /* Espaciado entre el texto y el spinner */
+}
+
+/* Ajustes específicos para pantallas más pequeñas */
+@media (max-width: 768px) { /* Tablets y móviles */
+  .loading-content {
+    font-size: 1.5rem; /* Tamaño de fuente más pequeño */
+  }
+
+  .spinner {
+    width: 50px; /* Ancho del spinner más pequeño */
+    height: 50px; /* Alto del spinner más pequeño */
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); /* Comienza en 0 grados */
+  }
+  100% {
+    transform: rotate(360deg); /* Termina en 360 grados */
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Comienza invisible */
+  }
+  to {
+    opacity: 1; /* Termina visible */
+  }
+}

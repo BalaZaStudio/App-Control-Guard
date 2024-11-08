@@ -1,0 +1,157 @@
+/* Animación de entrada y salida para el título */
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px); /* Comienza 20px más arriba */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Termina en la posición original */
+  }
+}
+
+/* Títulos */
+.titulo {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #000000; /* Azul vibrante */
+  text-align: center;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Efecto 3D */
+  font-weight: bold; /* Negrita */
+  animation: fadeInSlide 1.1s ease-in-out; /* Aplicar la animación */
+}
+
+/* Contenedor principal */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los elementos hijos */
+}
+
+/* Lista de eventos */
+.eventList {
+  list-style: none; /* Quita las viñetas de la lista */
+  padding: 0; /* Quita el padding */
+  width: 100%; /* Ancho completo */
+  max-width: 1900px; /* Ancho máximo en pantallas grandes */
+}
+
+/* Elemento de evento */
+.eventItem {
+  background-color: #f4f4f4; /* Fondo gris claro */
+  border: 1px solid #ddd; /* Borde gris */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 15px; /* Espaciado interno */
+  margin: 10px 0; /* Margen vertical entre elementos */
+  display: flex;
+  justify-content: space-between; /* Espaciado entre texto y botones */
+  align-items: center; /* Alinea verticalmente */
+  transition: background-color 0.3s; /* Transición suave para el fondo */
+}
+
+.eventItem:hover {
+  background-color: #f5f399; /* Fondo gris más oscuro al pasar el mouse */
+}
+
+/* Texto del evento */
+.eventText {
+  flex-grow: 1; /* Ocupa el espacio restante */
+}
+
+/* Contenedor de botones */
+.buttonContainer {
+  display: flex; /* Flexbox para alinear los botones */
+  gap: 10px; /* Espacio entre botones */
+}
+
+/* Botones */
+.button {
+  background-color: #4CAF50; /* Verde */
+  color: rgb(0, 0, 0); /* Texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px 15px; /* Espaciado interno */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  transition: background-color 0.3s; /* Transición suave para el fondo */
+}
+
+.button:hover {
+  background-color: #690d38; /* Verde más oscuro al pasar el mouse */
+  color: #ddd;
+}
+
+/* Estilos del modal */
+.editTitle {
+  font-size: 24px; /* Tamaño de fuente */
+  margin-bottom: 15px; /* Margen inferior */
+}
+
+.dateInput {
+  width: 100%; /* Ancho completo */
+  padding: 10px; /* Espaciado interno */
+  margin-bottom: 10px; /* Margen inferior */
+  border: 1px solid #ccc; /* Borde gris */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Subtítulo en el modal */
+.editSubTitle {
+  margin-top: 20px; /* Margen superior */
+  font-size: 18px; /* Tamaño de fuente */
+}
+
+/* Estilos para iframe */
+.documentIframe {
+  width: 100%; /* Ancho completo */
+  height: 400px; /* Altura */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Media Queries para dispositivos móviles y tabletas */
+@media (max-width: 768px) {
+  .titulo {
+    font-size: 24px; /* Tamaño de fuente más pequeño */
+  }
+
+  .eventList {
+    max-width: 100%; /* Ancho completo en móviles */
+  }
+
+  .eventItem {
+    flex-direction: column; /* Cambiar a columna para eventos */
+    align-items: flex-start; /* Alinear texto a la izquierda */
+  }
+
+  .buttonContainer {
+    width: 100%; /* Contenedor de botones ocupa todo el ancho */
+    justify-content: space-between; /* Espaciado entre botones */
+  }
+
+  .button {
+    width: 100%; /* Botones ocupan todo el ancho */
+    padding: 12px; /* Mayor espaciado en botones */
+  }
+
+  .documentIframe {
+    height: 300px; /* Altura menor en móviles */
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo {
+    font-size: 20px; /* Tamaño de fuente aún más pequeño */
+  }
+
+  .eventItem {
+    padding: 10px; /* Espaciado interno menor */
+  }
+
+  .button {
+    padding: 10px; /* Ajustar espaciado de botones */
+  }
+
+  .documentIframe {
+    height: 250px; /* Altura aún menor en móviles pequeños */
+  }
+}
